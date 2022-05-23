@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heroes CRUD</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="text-primary">Todos Los Heroes</h1>
+
+    <div class="container" style="margin: 16px auto">
+        <!-- Poner la lista aqui -->
+        <div class="row" id="#listaHeroes">
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" data-bs-backdrop="static"
+         data-bs-keyboard="false" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addModalLabel">Nuevo Heroe</h5>
+                    <button type="button" class="btn-close" onclick="cancelarEdicion()" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="#nombre-campo" class="form-label">Nombre</label>
+                        <input type="email" class="form-control" id="#nombre-campo" placeholder="Capitan America">
+                    </div>
+                    <div class="mb-3">
+                        <label for="#descripcion-campo" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="#descripcion-campo" rows="3"></textarea>
+                    </div>
+                    <hr>
+                    <p class="text-danger" id="#error-text"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="cancelarEdicion()">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="agregarHeroeEnServidor()">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" data-bs-backdrop="static"
+         data-bs-keyboard="false" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Editar Heroe</h5>
+                    <button type="button" class="btn-close" onclick="cancelarEdicionHeroe()"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="#nombre-campo-editar" class="form-label">Nuevo Nombre</label>
+                        <input type="email" class="form-control" id="#nombre-campo-editar"
+                               placeholder="Capitan America">
+                    </div>
+                    <div class="mb-3">
+                        <label for="#descripcion-campo-editar" class="form-label">Nueva Descripción</label>
+                        <textarea class="form-control" id="#descripcion-campo-editar" rows="3"></textarea>
+                    </div>
+                    <hr>
+                    <p class="text-danger" id="#error-text-edit"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="cancelarEdicionHeroe()">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="guardar-cambios-edicion">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" data-bs-backdrop="static"
+         data-bs-keyboard="false" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Alerta</h5>
+                    <button type="button" class="btn-close" onclick="cancelarEliminacion()" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-danger" id="eliminarMensaje"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="cancelarEliminacion()">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="eliminar-heroe-servidor">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addModal">
+        Nuevo Heroe
+    </button>
+
+
+</div>
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/heroes-crud.js"></script>
+</body>
+</html>
